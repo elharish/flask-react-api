@@ -11,7 +11,9 @@ def create_app():
     # Initialize extensions
     db.init_app(app)
     bcrypt.init_app(app)
-    CORS(app, resources={r"/api/*": {"origins": "http://localhost:5173"}})
+
+    # Enable CORS for all origins
+    CORS(app)
 
     # Register blueprints
     from routes.auth import auth_bp
@@ -27,4 +29,4 @@ def create_app():
 
 if __name__ == "__main__":
     app = create_app()
-    app.run(debug=True, port=5000)
+    app.run(host="0.0.0.0", port=5000, debug=True)
