@@ -15,7 +15,7 @@ class User(db.Model):
         return {
             "id": self.id,
             "name": self.name,
-            "mobile": self.mobile,
+            "phone": self.phone,
             "email": self.email,
             "created_at": self.created_at.strftime("%d %B %Y, %I:%M %p"),
         }
